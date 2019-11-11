@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+        .header{
+            height: 60px;
+            background: #eee;
+        }
+        .nav-bar{
+            height: 50px;
+            background: #555;
+        }
+        .nav-bar a{
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            float: left;
+            height: 50px;
+        }
+        .active{
+            background: green;
+        }
+        .nav-responsive{
+            background: #eee;
+            width: 200px;
+            float: left;
+            height: 400px;
+        }
+        .nav-responsive a{
+            width: 100%;
+            float: left;
+            height: 40px;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .fa-bars{
+            font-size: 20px;
+            margin-left: 25px;
+            margin-top: 20px;
+            float: left;
+            cursor: pointer;
+            display: none;
+        }
+        @media only screen and (max-width: 600px) {
+            .header{
+                background: #009688
+            }
+            .fa-bars{
+                display: block;
+            }
+            .nav-bar{
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <i class="fa fa-bars" aria-hidden="true" onclick="toggleNav()"></i>
+            <h3 style="text-align: center">Random Company</h3>
+        </div>
+        <div class="nav-bar">
+            <a href="#" class="active">Home</a>
+            <a href="#">Details</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="nav-responsive" style="display: none">
+                <a href="#">Home</a>
+                <a href="#">Details</a>
+                <a href="#">Contact</a>
+        </div>
+        <div class="main-content">
+            Content goes here......
+        </div>
+        <div class="footer"></div>
+    </div>
+    <script>
+        function toggleNav(){
+            let ele = document.getElementsByClassName('nav-responsive')[0];
+            if(ele.style.display === 'none'){
+                ele.style.display = 'block';
+            }else{
+                ele.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

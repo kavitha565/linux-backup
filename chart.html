@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script>
+window.onload = function () {
+
+var chart1 = new CanvasJS.Chart("chartContainer1", {
+	theme: "light2",
+	title:{
+		text: "NZ batting performance"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 5 },
+			{ y: 10},
+			{ y: 3 },
+			{ y: 10 },
+			{ y: 6 },
+			{ y: 11 },
+			{ y: 2 },
+			{ y: 15 },
+			{ y: 20 },
+			{ y: 12 },
+			{ y: 2 },
+			{ y: 10 }
+		]
+	}]
+});
+chart1.render();
+function displayChart(dataObj){
+	var chart2 = new CanvasJS.Chart("chartContainer2", {
+	theme: "light2",
+	title:{
+		text: "India batting performance"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: dataObj
+	}]
+});
+chart2.render();
+}
+if(window.Worker){
+          var myWorker = new Worker("chartWorker.js");
+          myWorker.postMessage({});
+          myWorker.onmessage = function(e){
+            displayChart(e.data);
+          }
+        }
+}
+</script>
+</head>
+<body>
+<div id="chartContainer1" style="height: 400px; width: 1000px;"></div>
+<div id="chartContainer2" style="height: 400px; width: 1000px;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>

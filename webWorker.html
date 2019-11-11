@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Web worker demo</h1>
+</body>
+<script>
+    if(window.Worker){
+        var myWorker = new Worker("test.js");  //create webworker using Worker constructor function passing worker file
+        var dataObj = {
+            addData : {
+                num1 : 1,
+                num2 : 2
+            }
+        }
+        myWorker.postMessage(dataObj); //used to send or post data b/w UI and web worker
+        myWorker.onmessage = function(e){
+            console.log(e.data.result);
+        }
+    }
+</script>
+</html>

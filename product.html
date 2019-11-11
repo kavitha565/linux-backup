@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <title>Data demo</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+         table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 40%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+      </style>
+   </head>
+   <body>
+     <h3>Product Details</h3>
+      <table>
+         <thead>
+            <tr>
+               <th>Product</th>
+               <th>Quantity(Avaliable)</th>
+               <th>Price</th>
+            </tr>
+         </thead>
+         <tbody id="dataTable"></tbody>
+      </table>
+   </body>
+   <script>
+      window.onload = function(){
+        if(window.Worker){
+          var myWorker = new Worker("productWorker.js");
+          myWorker.postMessage({});
+          myWorker.onmessage = function(e){
+            displayData(e.data);
+          }
+        }
+      }
+      function displayData(dataObj){
+        document.getElementById("dataTable").innerHTML="";
+        for(var i=0;i<dataObj.length;i++){
+        var tableRow=document.createElement("tr");
+        for(item in dataObj[i]){
+        var tableData=document.createElement("td");
+        tableData.innerHTML=dataObj[i][item];
+        tableRow.appendChild(tableData);
+        }
+        document.getElementById("dataTable").appendChild(tableRow);
+        }
+      }
+   </script>
+</html>

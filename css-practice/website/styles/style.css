@@ -1,0 +1,99 @@
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+body{
+    /*background-image: url('../images/clouds.png');*/
+    background-color: #00CDD1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wrapper{
+    padding: 10px;
+}
+.row{
+    display: flex;
+    flex-flow: row wrap;
+    flex : 0 1 auto
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0.9em;
+    background-color: #e6bf98;
+}
+nav ul li{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: mediumvioletred;
+}
+div.row{
+    background-color: #fff6e0;
+    padding: 10px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.col-1{
+    flex: 0 0 66%;
+    margin-left: 4%;
+}
+.col-2{
+    flex: 0 0 20%;
+    margin-left: 4%;
+}
+.floatRight{
+    float: right;
+    margin: 10px;
+}
+.rounded{
+    border-radius: 4px;
+}
+.w250{
+    width: 250px;
+}
+.sidebar-primary{
+    border: 2px solid #00c4c7;
+    border-radius: 6px;
+    flex: 0 0 100%;
+    margin-bottom: 2em;
+}
+.sidebar-secondary{
+    border: 2px solid mediumvioletred;
+    border-radius: 6px;
+    flex: 0 0 100%;
+}
+.sidebar-primary h3{
+    padding: 10px;
+    background-color: #00c4c7;
+    color: white;
+    margin: 0;
+}
+.sidebar-primary p{
+    padding: 10px;
+    font-size: 14px;
+}
+.sidebar-secondary h3{
+    padding: 10px;
+    background-color:mediumvioletred;
+    color: white;
+    margin: 0;
+}
+[class*='sidebar-'] img{
+    width: 100%;
+    display: block;
+}
+footer{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
